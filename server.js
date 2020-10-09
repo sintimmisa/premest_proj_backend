@@ -1,6 +1,6 @@
 const express =require('express');
 require('dotenv').config()//For loading environment variable
-const connectDB =require('./database/config');
+const connectDB =require('./database/config');//for connecting Db
 
 const app=express();
 
@@ -19,4 +19,4 @@ app.get('/', (req,res)=>{
 });
 
 
-app.listen(PORT, console.log(`Server Runing at PORT:${PORT}`));
+app.listen(PORT, ()=> console.log(`Server Runing at PORT:${PORT}`));
