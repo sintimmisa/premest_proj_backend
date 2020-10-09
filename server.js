@@ -1,9 +1,15 @@
 const express =require('express');
-require('dotenv').config()
+require('dotenv').config()//For loading environment variable
+const connectDB =require('./database/config');
 
 const app=express();
 
 const PORT=process.env.PORT;
+
+
+//Datebase connection
+connectDB();
+
 
 
 
