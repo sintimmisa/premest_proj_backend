@@ -3,7 +3,7 @@ const cors =require('cors');
 const logger=require('morgan');
 
 require('dotenv').config()//For loading environment variable
-const connectDB =require('./database/config');//for connecting Db
+const connectDB =require('./config/db');//for connecting Db
 const authRouter=require('./routes/api/auth');
 
 const app=express();
