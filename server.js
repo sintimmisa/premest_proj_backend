@@ -4,6 +4,7 @@ const logger=require('morgan');
 
 require('dotenv').config()//For loading environment variable
 const connectDB =require('./database/config');//for connecting Db
+const authRouter=require('./controllers/auth');
 
 const app=express();
 
@@ -19,6 +20,7 @@ const PORT=process.env.PORT;
 app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
+app.use('/api/auth', authRouter)
 
 
 
