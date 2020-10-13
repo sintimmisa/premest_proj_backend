@@ -1,9 +1,10 @@
 const express =require('express');
 const authRouter =express.Router();
+const {validator,validationResult} =require('../middlewares/auth');
 
-authRouter.post('/register',(req,res)=>{
-    console.log("inside register controller")
-})
+
+authRouter.post('/register', validator,validationResult)
+
 
 
 module.exports= authRouter;
