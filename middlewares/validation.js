@@ -7,7 +7,7 @@ const {check, validationResult} =require('express-validator');
  * check email
  * check password */
 
-exports.validator=[
+exports.registerValidator=[
     //username
     check('username')
         .not().isEmpty().trim()
@@ -51,3 +51,22 @@ exports.validationResult=(req,res,next)=>{
 
     next()
 }
+
+exports.loginValidator=[
+    
+    check('email')
+        .not().isEmpty().trim()
+        .withMessage("All fields are required!"),
+
+    //email
+    check('email')
+    .isEmail().normalizeEmail()
+    .withMessage('Invalid email!'),
+
+    //password
+    check('password')
+    .isLength({min:6})
+    .withMessage('Password must be at least 6 characters!'),
+
+
+]

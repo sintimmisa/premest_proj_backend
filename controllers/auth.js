@@ -52,3 +52,14 @@ exports.registerController = async(req,res)=>{
     }
 
 };
+
+
+exports.loginController = async(req,res)=>{
+
+   console.log('Inside login controller')
+
+};
+
+
+
+
