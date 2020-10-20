@@ -1,4 +1,4 @@
-/**
+(/**
  * Function to setLocal storage to key:value pair
  * @param {*} key 
  * @param {*} value 
@@ -17,4 +17,4 @@ exports.getLocalStorage=(key)=>{
 
 exports.deleteLocalStorage=(key)=>{
     localStorage.removeItem(key);
-}
+})

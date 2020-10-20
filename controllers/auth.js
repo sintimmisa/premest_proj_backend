@@ -21,7 +21,7 @@ exports.registerController = async(req,res)=>{
         const user= await User.findOne({email});
             if(user){
                 return res.status(400).json({
-                    errMsg:"Email Already exist"
+                    errorMessage:"Email Already exist"
                 });
             }
         //else create new user account
@@ -59,15 +59,15 @@ exports.registerController = async(req,res)=>{
 exports.loginController = async(req,res)=>{
     const {email,password}=req.body;
 
-   console.log('Inside login controller');
+   
    try{
 
     const user =await User.findOne({email});
 
     if (!user){
 
-        return res.status(400).json({
-            errorMessage:"Invid email or password",
+         return res.status(400).json({
+            errorMessage:"Invalid email or password",
         });
     }
 
@@ -76,7 +76,7 @@ exports.loginController = async(req,res)=>{
  */
     const isMatch = await bcrypt.compare(password,user.password);
     if (!isMatch){
-        return res.status(400).json({
+         res.status(400).json({
             errorMessage:"Invalide email or password",
         });
     }
@@ -91,7 +91,7 @@ exports.loginController = async(req,res)=>{
         },
     }
 
-    jwt.sign(payLoad,jwtSecret,{expiresIn: jwtExpire},(err,token)=>{
+     jwt.sign(payLoad,jwtSecret,{expiresIn: jwtExpire},(err,token)=>{
         if (err){
             console.log('jwt error : ',err);
         }
